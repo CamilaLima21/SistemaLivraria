@@ -44,9 +44,9 @@ public class ProdutosController {
 	public ResponseEntity<ProdutosDto> update(@PathVariable Integer id, @RequestBody ProdutosDto produtos) {
 		return ResponseEntity.status(HttpStatus.OK).body(produtosService.update(id, produtos.toEntity()));
 	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

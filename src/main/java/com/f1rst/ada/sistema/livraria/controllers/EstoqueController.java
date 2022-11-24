@@ -40,14 +40,14 @@ public class EstoqueController {
 	public ResponseEntity<EstoqueDto> save(@Valid @RequestBody EstoqueDto estoque) {
 		return ResponseEntity.status(HttpStatus.OK).body(estoqueService.save(estoque.toEntity()));
 	}
-	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<EstoqueDto> update(@PathVariable Integer id, @RequestBody EstoqueDto estoque) {
-		return ResponseEntity.status(HttpStatus.OK).body(estoqueService.update(id, estoque.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<EstoqueDto> update(@PathVariable Integer id, @RequestBody EstoqueDto estoque) {
+//		return ResponseEntity.status(HttpStatus.OK).body(estoqueService.update(id, estoque.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

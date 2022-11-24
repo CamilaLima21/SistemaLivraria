@@ -40,13 +40,13 @@ public class AlbunsMusicaController {
 		return ResponseEntity.status(HttpStatus.OK).body(albunsMusicaService.save(albunsMusica.toEntity()));
 	}
 	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<AlbunsMusicaDto> update(@PathVariable Integer id, @RequestBody AlbunsMusicaDto albunsMusica) {
-		return ResponseEntity.status(HttpStatus.OK).body(albunsMusicaService.update(id, albunsMusica.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<AlbunsMusicaDto> update(@PathVariable Integer id, @RequestBody AlbunsMusicaDto albunsMusica) {
+//		return ResponseEntity.status(HttpStatus.OK).body(albunsMusicaService.update(id, albunsMusica.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

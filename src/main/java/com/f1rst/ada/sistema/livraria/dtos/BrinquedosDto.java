@@ -13,11 +13,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class BrinquedosDto {
+public class BrinquedosDto extends ProdutosDto{
 
-	private int id;
-	private String nome;
-	private double preco;
 	private String tipo;
 	
 	public BrinquedosEntity toEntity() {

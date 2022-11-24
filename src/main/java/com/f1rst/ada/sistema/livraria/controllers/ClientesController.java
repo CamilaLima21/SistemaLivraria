@@ -40,14 +40,14 @@ public class ClientesController {
 	public ResponseEntity<ClientesDto> save(@Valid @RequestBody ClientesDto clientes) {
 		return ResponseEntity.status(HttpStatus.OK).body(clientesService.save(clientes.toEntity()));
 	}
-	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<ClientesDto> update(@PathVariable Integer id, @RequestBody ClientesDto clientes) {
-		return ResponseEntity.status(HttpStatus.OK).body(clientesService.update(id, clientes.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<ClientesDto> update(@PathVariable Integer id, @RequestBody ClientesDto clientes) {
+//		return ResponseEntity.status(HttpStatus.OK).body(clientesService.update(id, clientes.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

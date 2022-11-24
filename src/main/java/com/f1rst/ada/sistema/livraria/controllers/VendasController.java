@@ -41,13 +41,13 @@ public class VendasController {
 		return ResponseEntity.status(HttpStatus.OK).body(vendasService.save(vendas.toEntity()));
 	}
 	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<VendasDto> update(@PathVariable Integer id, @RequestBody VendasDto vendas) {
-		return ResponseEntity.status(HttpStatus.OK).body(vendasService.update(id, vendas.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<VendasDto> update(@PathVariable Integer id, @RequestBody VendasDto vendas) {
+//		return ResponseEntity.status(HttpStatus.OK).body(vendasService.update(id, vendas.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

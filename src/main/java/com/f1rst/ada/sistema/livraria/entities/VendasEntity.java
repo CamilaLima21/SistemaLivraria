@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -16,9 +18,9 @@ import javax.persistence.Table;
 import org.modelmapper.ModelMapper;
 
 import com.f1rst.ada.sistema.livraria.dtos.VendasDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -29,25 +31,28 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "TB_VENDAS")
-public class VendasEntity {
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class VendasEntity  {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
+//	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private int idVenda;
 	
 	private Date dtVenda;
 	
-////	@ManyToOne
-////	@JoinColumn(name= "CLIENTE_ID")
-//	private ClientesEntity cliente;
+	@ManyToOne						 
+	@JoinColumn(name = "id_clientes") 
+	private ClientesEntity clientes;
 	
 	private int qtdProduto;
 	
 	@Column(name = "VALOR_TOTAL")
 	private Float valorTotal;
 	
-//	@ManyToMany(mappedBy = "vendas")
-//	private List<ProdutosEntity> produtos;
+//	@JsonIgnore
+	@ManyToOne	
+	@JoinColumn(name = "id_produtos") 
+	private ProdutosEntity produtos;
 	
 	public VendasDto toDto() {
 		ModelMapper mapper = new ModelMapper();

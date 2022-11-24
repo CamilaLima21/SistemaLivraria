@@ -17,6 +17,9 @@ public class ProdutosService {
 	@Autowired
 	private ProdutosRepository produtosRepository;
 	
+	@Autowired
+	private EstoqueService estoqueService;
+	
 	public List<ProdutosDto> getAll(){
 		List<ProdutosEntity> lista = produtosRepository.findAll();
 		List<ProdutosDto> listaDto = new ArrayList<>();
@@ -34,6 +37,8 @@ public class ProdutosService {
 	}
 	
 	public ProdutosDto save(ProdutosEntity produtos) {
+		produtosRepository.save(produtos).toDto();
+		estoqueService.gerenciamentoEstoque(produtos.getId(), 1);
 		return produtosRepository.save(produtos).toDto();
 	}
 	

@@ -39,14 +39,14 @@ public class BrinquedosController {
 	public ResponseEntity<BrinquedosDto> save(@Valid @RequestBody BrinquedosDto brinquedos) {
 		return ResponseEntity.status(HttpStatus.OK).body(brinquedosService.save(brinquedos.toEntity()));
 	}
-	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<BrinquedosDto> update(@PathVariable Integer id, @RequestBody BrinquedosDto brinquedos) {
-		return ResponseEntity.status(HttpStatus.OK).body(brinquedosService.update(id, brinquedos.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<BrinquedosDto> update(@PathVariable Integer id, @RequestBody BrinquedosDto brinquedos) {
+//		return ResponseEntity.status(HttpStatus.OK).body(brinquedosService.update(id, brinquedos.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

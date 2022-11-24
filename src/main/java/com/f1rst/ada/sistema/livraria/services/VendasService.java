@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.f1rst.ada.sistema.livraria.dtos.VendasDto;
+import com.f1rst.ada.sistema.livraria.entities.ProdutosEntity;
 import com.f1rst.ada.sistema.livraria.entities.VendasEntity;
+import com.f1rst.ada.sistema.livraria.repositories.ClientesRepository;
+import com.f1rst.ada.sistema.livraria.repositories.ProdutosRepository;
 import com.f1rst.ada.sistema.livraria.repositories.VendasRepository;
 
 @Service
@@ -16,6 +19,15 @@ public class VendasService {
 
 	@Autowired
 	private VendasRepository vendasRepository;
+	
+	@Autowired
+	private ClientesRepository clientesRepository;
+	
+	@Autowired
+	private ProdutosRepository produtosRepository;
+	
+	@Autowired
+	private EstoqueService estoqueService;
 	
 	public List<VendasDto> getAll(){
 		List<VendasEntity> lista = vendasRepository.findAll();
@@ -34,7 +46,17 @@ public class VendasService {
 	}
 	
 	public VendasDto save(VendasEntity vendas) {
+//		List<ProdutosEntity> produtos = new ArrayList<>();
+		clientesRepository.save(vendas.getClientes()).toDto();
+		produtosRepository.save(vendas.getProdutos()).toDto();
+		estoqueService.gerenciamentoEstoque(vendas.getProdutos().getId(), 2);
 		return vendasRepository.save(vendas).toDto();
+	}
+	
+	public VendasDto adicionarProduto(ProdutosEntity produtos) {
+		List<ProdutosEntity> listaprodutos = new ArrayList<>();
+		listaprodutos.add(produtos);
+		return adicionarProduto(produtos);
 	}
 	
 	public VendasDto update(int id, VendasEntity vendas) {
@@ -42,9 +64,9 @@ public class VendasService {
 		
 		if(optional.isPresent()) {
 			VendasEntity vendasBD = optional.get();
-			vendasBD.setIdVenda(vendas.getIdVenda());
+//			vendasBD.setIdVenda(vendas.getIdVenda());
 //			vendasBD.setCliente(vendas.getCliente());
-//			vendasBD.setProdutos(vendas.getProdutos());
+			vendasBD.setProdutos(vendas.getProdutos());
 			vendasBD.setQtdProduto(vendas.getQtdProduto());
 			vendasBD.setValorTotal(vendas.getValorTotal());
 			return vendasRepository.save(vendasBD).toDto();

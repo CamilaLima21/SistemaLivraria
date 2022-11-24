@@ -39,14 +39,14 @@ public class JogosController {
 	public ResponseEntity<JogosDto> save(@Valid @RequestBody JogosDto jogos) {
 		return ResponseEntity.status(HttpStatus.OK).body(jogosService.save(jogos.toEntity()));
 	}
-	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<JogosDto> update(@PathVariable Integer id, @RequestBody JogosDto jogos) {
-		return ResponseEntity.status(HttpStatus.OK).body(jogosService.update(id, jogos.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<JogosDto> update(@PathVariable Integer id, @RequestBody JogosDto jogos) {
+//		return ResponseEntity.status(HttpStatus.OK).body(jogosService.update(id, jogos.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

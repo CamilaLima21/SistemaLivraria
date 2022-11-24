@@ -1,13 +1,11 @@
 package com.f1rst.ada.sistema.livraria.dtos;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import com.f1rst.ada.sistema.livraria.entities.AlbunsMusicaEntity;
-import com.f1rst.ada.sistema.livraria.entities.BrinquedosEntity;
 import com.f1rst.ada.sistema.livraria.entities.EstoqueEntity;
-import com.f1rst.ada.sistema.livraria.entities.FilmesEntity;
-import com.f1rst.ada.sistema.livraria.entities.JogosEntity;
-import com.f1rst.ada.sistema.livraria.entities.LivrosEntity;
+import com.f1rst.ada.sistema.livraria.repositories.FilmesRepository;
+import com.f1rst.ada.sistema.livraria.repositories.LivrosRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,15 +16,21 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EstoqueDto {
+public class EstoqueDto extends ProdutosDto{
 
-//	private AlbunsMusicaEntity albunsMusicas;
-//	private BrinquedosEntity brinquedos;
-//	private JogosEntity jogos;
-//	private LivrosEntity livros;
-//	private FilmesEntity filmes;
+//	private AlbunsMusicaDto albunsMusicas;
+//	private BrinquedosDto brinquedos;
+//	private JogosDto jogos;
+//	private LivrosDto livros;
+//	private FilmesDto filmes;
 	
-	private int id;
+	@Autowired
+	private LivrosRepository livrosRepository;
+	
+	@Autowired
+	private FilmesRepository filmesRepository;
+	
+//	private int id;
 	private int qtdProdutos;
 	
 	public EstoqueEntity toEntity() {

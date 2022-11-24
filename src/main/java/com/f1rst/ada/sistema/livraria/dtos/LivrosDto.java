@@ -13,11 +13,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class LivrosDto {
+public class LivrosDto extends ProdutosDto{
 
-	private int id;
-	private String nome;
-	private double preco;
 	private String generos;
 	private String autor;
 	private String editora;

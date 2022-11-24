@@ -22,10 +22,12 @@ public class VendasDto {
 
 	private int idVenda;
 	private Date dtVenda;
-//	private ClientesEntity cliente;
+	private ClientesEntity clientes;
 	private int qtdProduto;
 	private Float valorTotal;
-//	private List<ProdutosEntity> produtos;
+//	private ProdutosDto produtos;
+	
+	private ProdutosDto produtos;
 	
 	public VendasEntity toEntity() {
 		ModelMapper mapper = new ModelMapper();

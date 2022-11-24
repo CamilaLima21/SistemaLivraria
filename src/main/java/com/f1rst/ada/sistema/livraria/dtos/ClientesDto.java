@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClientesDto {
 
-	private int id;
+	private int idClientes;
 	private String nome;
 	private String rg;
 	private String cpf;

@@ -39,14 +39,14 @@ public class FilmesController {
 	public ResponseEntity<FilmesDto> save(@Valid @RequestBody FilmesDto filmes) {
 		return ResponseEntity.status(HttpStatus.OK).body(filmesService.save(filmes.toEntity()));
 	}
-	
-	@PatchMapping(value = "{id}")
-	public ResponseEntity<FilmesDto> update(@PathVariable Integer id, @RequestBody FilmesDto filmes) {
-		return ResponseEntity.status(HttpStatus.OK).body(filmesService.update(id, filmes.toEntity()));
-	}
-	
-	@DeleteMapping(value = "{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		return ResponseEntity.ok().build();
-	}
+//	
+//	@PatchMapping(value = "{id}")
+//	public ResponseEntity<FilmesDto> update(@PathVariable Integer id, @RequestBody FilmesDto filmes) {
+//		return ResponseEntity.status(HttpStatus.OK).body(filmesService.update(id, filmes.toEntity()));
+//	}
+//	
+//	@DeleteMapping(value = "{id}")
+//	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+//		return ResponseEntity.ok().build();
+//	}
 }

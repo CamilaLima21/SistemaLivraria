@@ -13,11 +13,8 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AlbunsMusicaDto {
+public class AlbunsMusicaDto extends ProdutosDto{
 
-	private int id;
-	private String nome;
-	private double preco;
 	private String banda;
 	private String generos;
 	private String selos;

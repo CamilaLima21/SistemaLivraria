@@ -1,9 +1,8 @@
 package com.f1rst.ada.sistema.livraria.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
@@ -21,13 +20,11 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name= "TB_MUSICAS")
-public class AlbunsMusicaEntity {
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
+public class AlbunsMusicaEntity extends ProdutosEntity{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String nome;
-	private double preco;
+//	private int id_albuns_Musica;
 	private String banda;
 	private String generos;
 	private String selos;

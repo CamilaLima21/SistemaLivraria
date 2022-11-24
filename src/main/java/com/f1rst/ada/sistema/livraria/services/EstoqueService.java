@@ -9,13 +9,18 @@ import org.springframework.stereotype.Service;
 
 import com.f1rst.ada.sistema.livraria.dtos.EstoqueDto;
 import com.f1rst.ada.sistema.livraria.entities.EstoqueEntity;
+import com.f1rst.ada.sistema.livraria.entities.ProdutosEntity;
 import com.f1rst.ada.sistema.livraria.repositories.EstoqueRepository;
+import com.f1rst.ada.sistema.livraria.repositories.ProdutosRepository;
 
 @Service
 public class EstoqueService {
 
 	@Autowired
 	private EstoqueRepository estoqueRepository;
+	
+	@Autowired
+	private ProdutosRepository produtosRepository;
 	
 	public List<EstoqueDto> getAll(){
 		List<EstoqueEntity> lista = estoqueRepository.findAll();
@@ -57,5 +62,25 @@ public class EstoqueService {
 	
 	public void delete(int id) {
 		estoqueRepository.deleteById(id);
+	}
+	
+	public void gerenciamentoEstoque(int id, int tipoTransacao) {
+		Optional<ProdutosEntity> optional = produtosRepository.findById(id);
+		EstoqueEntity estoqueEntity = new EstoqueEntity();
+		if(optional.isPresent()) {
+			if(tipoTransacao == 1) {
+				ProdutosEntity produtosBD = optional.get();
+				estoqueEntity.setQtdProdutos(estoqueEntity.getQtdProdutos() + produtosBD.getQtd());
+				estoqueEntity.setTipoMovimentacao("1 - Entrada Estoque");
+				estoqueRepository.save(estoqueEntity).toDto();
+			}
+			else
+				if(tipoTransacao == 2) {
+					ProdutosEntity produtosBD = optional.get();
+					estoqueEntity.setQtdProdutos(estoqueEntity.getQtdProdutos() - produtosBD.getQtd());
+					estoqueEntity.setTipoMovimentacao("2 - Saída Estoque");
+					estoqueRepository.save(estoqueEntity).toDto();
+				}
+		}
 	}
 }
