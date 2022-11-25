@@ -74,8 +74,8 @@ public class EstoqueService {
 				estoqueEntity.setTipoMovimentacao("1 - Entrada Estoque");
 				estoqueRepository.save(estoqueEntity).toDto();
 			}
-			else
-				if(tipoTransacao == 2) {
+			else if (tipoTransacao == 2)
+				 {
 					ProdutosEntity produtosBD = optional.get();
 					estoqueEntity.setQtdProdutos(estoqueEntity.getQtdProdutos() - produtosBD.getQtd());
 					estoqueEntity.setTipoMovimentacao("2 - Saída Estoque");

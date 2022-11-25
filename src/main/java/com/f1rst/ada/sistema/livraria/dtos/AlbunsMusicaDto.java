@@ -15,9 +15,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public class AlbunsMusicaDto extends ProdutosDto{
 
+//	private int id_albuns_musica;
+	
 	private String banda;
 	private String generos;
 	private String selos;
+	
 	
 	public AlbunsMusicaEntity toEntity() {
 		ModelMapper mapper = new ModelMapper();

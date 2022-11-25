@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.f1rst.ada.sistema.livraria.dtos.VendasDto;
-import com.f1rst.ada.sistema.livraria.entities.ProdutosEntity;
 import com.f1rst.ada.sistema.livraria.entities.VendasEntity;
 import com.f1rst.ada.sistema.livraria.repositories.ClientesRepository;
 import com.f1rst.ada.sistema.livraria.repositories.ProdutosRepository;
@@ -46,17 +45,10 @@ public class VendasService {
 	}
 	
 	public VendasDto save(VendasEntity vendas) {
-//		List<ProdutosEntity> produtos = new ArrayList<>();
 		clientesRepository.save(vendas.getClientes()).toDto();
 		produtosRepository.save(vendas.getProdutos()).toDto();
 		estoqueService.gerenciamentoEstoque(vendas.getProdutos().getId(), 2);
 		return vendasRepository.save(vendas).toDto();
-	}
-	
-	public VendasDto adicionarProduto(ProdutosEntity produtos) {
-		List<ProdutosEntity> listaprodutos = new ArrayList<>();
-		listaprodutos.add(produtos);
-		return adicionarProduto(produtos);
 	}
 	
 	public VendasDto update(int id, VendasEntity vendas) {
@@ -64,8 +56,8 @@ public class VendasService {
 		
 		if(optional.isPresent()) {
 			VendasEntity vendasBD = optional.get();
-//			vendasBD.setIdVenda(vendas.getIdVenda());
-//			vendasBD.setCliente(vendas.getCliente());
+			vendasBD.setId_venda(vendas.getId_venda());
+			vendasBD.setClientes(vendas.getClientes());
 			vendasBD.setProdutos(vendas.getProdutos());
 			vendasBD.setQtdProduto(vendas.getQtdProduto());
 			vendasBD.setValorTotal(vendas.getValorTotal());

@@ -1,8 +1,6 @@
 package com.f1rst.ada.sistema.livraria.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 import org.modelmapper.ModelMapper;
@@ -20,11 +18,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name= "TB_BRINQUEDOS")
-//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@Inheritance(strategy = InheritanceType.JOINED)
 public class BrinquedosEntity extends ProdutosEntity{
 
 //	private int id_brinquedos;
+	
 	private String tipo;
 	
 	public BrinquedosDto toDto() {

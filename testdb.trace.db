@@ -2318,3 +2318,6 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Camila 
 	at org.h2.mvstore.FileStore.open(FileStore.java:128)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:452)
 	... 60 more
+2022-11-24 14:04:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TB_CLIENTES" not found; SQL statement:
+/* load com.f1rst.ada.sistema.livraria.entities.ClientesEntity */ select clientesen0_.id_clientes as id_clien1_0_0_, clientesen0_.cpf as cpf2_0_0_, clientesen0_.data_nasc as data_nas3_0_0_, clientesen0_.nome as nome4_0_0_, clientesen0_.rg as rg5_0_0_ from tb_clientes clientesen0_ where clientesen0_.id_clientes=? [42102-214]

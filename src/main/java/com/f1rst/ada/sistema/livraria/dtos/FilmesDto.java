@@ -15,6 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class FilmesDto extends ProdutosDto{
 
+//	private int id_filmes;
+	
 	private String estudio;
 	private String diretores;
 	private String generos;

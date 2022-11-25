@@ -26,28 +26,28 @@ public class BDService {
 public void inserirVendas() {
 		
 
-		List<ClientesEntity> clientes = clientesRepository.findAll();
-
-		List<ProdutosEntity> produtos = produtosRepository.findAll();
-		
-		VendasEntity venda = new VendasEntity();
-		venda.setValorTotal(Float.valueOf(120));		
-
-		venda.setClientes(clientes.get(0));;
-
-		venda.setProdutos(produtos.get(0));
-		
-		VendasEntity vendaSalva = vendasRepository.save(venda);
-		
-		List<VendasEntity> listaVendas = new ArrayList<>();
-		listaVendas.add(vendaSalva);
-		
-
-		for (int i = 0; i < produtos.size(); i++) {
-			produtos.get(i).setVendas(listaVendas);
-
-			produtosRepository.save(produtos.get(i));
-		}
+//		List<ClientesEntity> clientes = clientesRepository.findAll();
+//
+//		List<ProdutosEntity> produtos = produtosRepository.findAll();
+//		
+//		VendasEntity venda = new VendasEntity();
+//		venda.setValorTotal(Float.valueOf(120));		
+//
+//		venda.setClientes(clientes.get(0));;
+//
+//		venda.setProdutos(produtos.get(0));
+//		
+//		VendasEntity vendaSalva = vendasRepository.save(venda);
+//		
+//		List<VendasEntity> listaVendas = new ArrayList<>();
+//		listaVendas.add(vendaSalva);
+//		
+//
+//		for (int i = 0; i < produtos.size(); i++) {
+//			produtos.get(i).setVendas(listaVendas);
+//
+//			produtosRepository.save(produtos.get(i));
+//		}
 	}
 	
 }

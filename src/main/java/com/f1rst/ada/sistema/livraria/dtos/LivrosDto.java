@@ -15,6 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class LivrosDto extends ProdutosDto{
 
+//	private int id_livros;
+	
 	private String generos;
 	private String autor;
 	private String editora;

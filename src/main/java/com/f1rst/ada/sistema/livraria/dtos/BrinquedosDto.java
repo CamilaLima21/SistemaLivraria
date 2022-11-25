@@ -15,6 +15,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class BrinquedosDto extends ProdutosDto{
 
+//	private int id_brinquedos;
+	
 	private String tipo;
 	
 	public BrinquedosEntity toEntity() {

@@ -1,11 +1,11 @@
 package com.f1rst.ada.sistema.livraria.dtos;
 
-import java.util.List;
+import javax.persistence.ManyToOne;
 
 import org.modelmapper.ModelMapper;
 
 import com.f1rst.ada.sistema.livraria.entities.ProdutosEntity;
-import com.f1rst.ada.sistema.livraria.entities.VendasEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,11 +19,14 @@ import lombok.Setter;
 public class ProdutosDto {
 
 	private int id;
+	
 	private String nome;
 	private Float preco;
 	private int qtd;
+	@JsonIgnore
+	@ManyToOne
+	private EstoqueDto estoque;
 	
-//	private List<VendasDto> vendas;
 	
 	public ProdutosEntity toEntity() {
 		ModelMapper mapper = new ModelMapper();

@@ -16,6 +16,8 @@ import lombok.Setter;
 
 public class JogosDto extends ProdutosDto{
 
+//	private int id_jogos;
+	
 	private String distribuidora;
 	private String generos;
 	private String estudio;

@@ -4,8 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -28,8 +29,9 @@ import lombok.Setter;
 public class ClientesEntity {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idClientes;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id_clientes;
+	
 	private String nome;
 	private String rg;
 	private String cpf;
@@ -39,11 +41,10 @@ public class ClientesEntity {
 	@OneToMany(mappedBy = "clientes") 			
 	private List<VendasEntity> vendas;
 	
-	
-	
 	public ClientesDto toDto() {
 		ModelMapper mapper = new ModelMapper();
 		ClientesDto dto = mapper.map(this, ClientesDto.class);
 		return dto;
 	}
+	
 }
